@@ -6,6 +6,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -16,9 +17,9 @@ import java.util.List;
 @Slf4j
 @Component
 public class DefaultGeonamesRepository implements GeonamesRepository {
-    private static String geoNameGetCountriesListUrl = "http://api.geonames.org/countryInfoJSON?username=demo";
-    private static String geoNameGetProvincesForCountryListUrl = "http://api.geonames.org/childrenJSON?username=demo";
-    private static String geoNameGetZipforLocation = "http://api.geonames.org/findNearbyPostalCodesJSON?username=demo";
+    private static String geoNameGetCountriesListUrl = "http://api.geonames.org/countryInfoJSON?username=ntony";
+    private static String geoNameGetProvincesForCountryListUrl = "http://api.geonames.org/childrenJSON?username=ntony";
+    private static String geoNameGetZipforLocation = "http://api.geonames.org/findNearbyPostalCodesJSON?username=ntony";
 
 
     private final RestTemplate restTemplate;
@@ -39,8 +40,13 @@ public class DefaultGeonamesRepository implements GeonamesRepository {
     public List<ProvinceInfo> getProvincesForCountry(String countryId){
         ResponseEntity<ProvincesInfo> responseEntity = restTemplate.getForEntity(geoNameGetProvincesForCountryListUrl + "&geonameId=" + countryId, ProvincesInfo.class);
         ProvincesInfo provincesInfo = responseEntity.getBody();
-        List<ProvinceInfo> provinces = Arrays.asList(provincesInfo.getGeonames());
-        return provinces;
+        List<ProvinceInfo> provinces;
+        if(provincesInfo.getGeonames() != null){
+            provinces = Arrays.asList(provincesInfo.getGeonames());
+            return provinces;
+        }
+
+        return Collections.EMPTY_LIST;
     }
 
     @Override

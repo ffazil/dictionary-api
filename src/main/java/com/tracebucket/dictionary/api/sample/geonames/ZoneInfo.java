@@ -37,4 +37,6 @@ public class ZoneInfo {
     private String adminName1;
 
     private String population;
+
+    private String adminCode2;
 }

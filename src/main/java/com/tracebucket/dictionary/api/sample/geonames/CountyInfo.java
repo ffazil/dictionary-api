@@ -39,4 +39,6 @@ public class CountyInfo {
 
     private String population;
 
+    private String adminCode2;
+
 }

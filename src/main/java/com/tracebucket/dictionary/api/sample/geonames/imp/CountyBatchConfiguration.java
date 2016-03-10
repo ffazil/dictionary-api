@@ -1,7 +1,7 @@
 package com.tracebucket.dictionary.api.sample.geonames.imp;
 
-import com.tracebucket.dictionary.api.Country;
-import com.tracebucket.dictionary.api.sample.geonames.CountryInfo;
+import com.tracebucket.dictionary.api.County;
+import com.tracebucket.dictionary.api.sample.geonames.CountyInfo;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.batch.core.Job;
 import org.springframework.batch.core.Step;
@@ -14,16 +14,16 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 /**
- * @author ffazil
- * @since 08/03/16
+ * @author nidhintony
+ * @since 09/03/16
  */
 @Slf4j
 @Configuration
 @EnableBatchProcessing
-public class CountryBatchConfiguration {
+public class CountyBatchConfiguration {
     @Bean
-    public Job importCountryJob(JobBuilderFactory jobs, @Qualifier("countryStep1") Step s1, CountryJobCompletionNotificationListener listener) {
-        return jobs.get("importCountryJob")
+    public Job importCountyJob(JobBuilderFactory jobs, @Qualifier("countyStep1") Step s1, CountyJobCompletionNotificationListener listener) {
+        return jobs.get("importCountyJob")
                 .incrementer(new RunIdIncrementer())
                 .listener(listener)
                 .flow(s1)
@@ -31,16 +31,14 @@ public class CountryBatchConfiguration {
                 .build();
     }
 
-
     @Bean
-    public Step countryStep1(StepBuilderFactory stepBuilderFactory, CountryReader countryReader,
-                             CountryWriter countryWriter , CountryProcessor countryProcessor) {
-        return stepBuilderFactory.get("countryStep1")
-                .<CountryInfo, Country> chunk(1000)
-                .reader(countryReader)
-                .processor(countryProcessor)
-                .writer(countryWriter)
+    public Step countyStep1(StepBuilderFactory stepBuilderFactory, CountyReader countyReader,
+                              CountyWriter countyWriter , CountyProcessor countyProcessor) {
+        return stepBuilderFactory.get("countyStep1")
+                .<CountyInfo, County> chunk(1000)
+                .reader(countyReader)
+                .processor(countyProcessor)
+                .writer(countyWriter)
                 .build();
     }
-
 }

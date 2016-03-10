@@ -1,7 +1,9 @@
 package com.tracebucket.dictionary.api.sample.geonames.imp;
 
 import com.tracebucket.dictionary.api.Country;
+import com.tracebucket.dictionary.api.Province;
 import com.tracebucket.dictionary.api.sample.geonames.CountryInfo;
+import com.tracebucket.dictionary.api.sample.geonames.ProvinceInfo;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.batch.core.Job;
 import org.springframework.batch.core.Step;
@@ -20,10 +22,10 @@ import org.springframework.context.annotation.Configuration;
 @Slf4j
 @Configuration
 @EnableBatchProcessing
-public class CountryBatchConfiguration {
+public class ProvinceBatchConfiguration {
     @Bean
-    public Job importCountryJob(JobBuilderFactory jobs, @Qualifier("countryStep1") Step s1, CountryJobCompletionNotificationListener listener) {
-        return jobs.get("importCountryJob")
+    public Job importProvinceJob(JobBuilderFactory jobs, @Qualifier("provinceStep1") Step s1, ProvinceJobCompletionNotificationListener listener) {
+        return jobs.get("importProvinceJob")
                 .incrementer(new RunIdIncrementer())
                 .listener(listener)
                 .flow(s1)
@@ -33,13 +35,13 @@ public class CountryBatchConfiguration {
 
 
     @Bean
-    public Step countryStep1(StepBuilderFactory stepBuilderFactory, CountryReader countryReader,
-                             CountryWriter countryWriter , CountryProcessor countryProcessor) {
-        return stepBuilderFactory.get("countryStep1")
-                .<CountryInfo, Country> chunk(1000)
-                .reader(countryReader)
-                .processor(countryProcessor)
-                .writer(countryWriter)
+    public Step provinceStep1(StepBuilderFactory stepBuilderFactory, ProvinceReader provinceReader,
+                             ProvinceWriter provinceWriter , ProvinceProcessor provinceProcessor) {
+        return stepBuilderFactory.get("provinceStep1")
+                .<ProvinceInfo, Province> chunk(1000)
+                .reader(provinceReader)
+                .processor(provinceProcessor)
+                .writer(provinceWriter)
                 .build();
     }
 
