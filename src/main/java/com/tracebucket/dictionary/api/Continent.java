@@ -5,11 +5,11 @@ package com.tracebucket.dictionary.api;
  * @since 07/03/16
  */
 public enum Continent {
-    AF,
-    AS,
-    EU,
-    NA,
-    OC,
-    SA,
-    AN
+    Africa,
+    Asia,
+    Europe,
+    NorthAmerica,
+    Oceania,
+    SouthAmerica,
+    Antartica
 }
