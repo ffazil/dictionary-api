@@ -1,7 +1,7 @@
 package com.tracebucket.dictionary.api.sample.geonames.imp;
 
-import com.tracebucket.dictionary.api.Country;
-import com.tracebucket.dictionary.api.CountryRepository;
+import com.tracebucket.dictionary.api.geo.Country;
+import com.tracebucket.dictionary.api.geo.CountryRepository;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

@@ -1,8 +1,7 @@
 package com.tracebucket.dictionary.api.sample.geonames.imp;
 
-import com.tracebucket.dictionary.api.Country;
-import com.tracebucket.dictionary.api.SampleData;
-import com.tracebucket.dictionary.api.sample.geonames.CountryInfo;
+import com.tracebucket.dictionary.api.geo.Country;
+import com.tracebucket.dictionary.api.sample.geonames.SampleData;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.batch.core.Job;
 import org.springframework.batch.core.Step;

@@ -1,3 +1,25 @@
+
 geonames:
   sample:
     file: in_data.csv
+  zip:
+    file: in_zip.csv
+
+spring:
+  datasource:
+    url: jdbc:h2:mem:dictionary;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+    driverClassName: org.h2.Driver
+    username: sa
+    password:
+
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+  h2:
+    console:
+      enabled: true
+  batch:
+    job:
+      enabled: false
+  data:
+    mongodb:
+      port: 0

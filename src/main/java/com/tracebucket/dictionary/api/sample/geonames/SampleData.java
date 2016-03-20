@@ -1,6 +1,5 @@
 package com.tracebucket.dictionary.api.sample.geonames;
 
-
 import lombok.Data;
 
 import java.math.BigInteger;

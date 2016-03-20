@@ -10,7 +10,7 @@ import lombok.Data;
 @Data
 public class ZipInfo {
 
-    private String adminName2;
+    /*private String adminName2;
 
     private String adminName3;
 
@@ -30,6 +30,30 @@ public class ZipInfo {
     @JsonProperty("ISO3166-2")
     private String ISO3166_2;
 
+    private String adminName1;*/
+
+    private String countryCode;
+
+    private String postalCode;
+
+    private String placeName;
+
     private String adminName1;
+
+    private Integer adminCode1;
+
+    private String adminName2;
+
+    private Integer adminCode2;
+
+    private String adminName3;
+
+    private Integer adminCode3;
+
+    private Integer latitude;
+
+    private Integer longitude;
+
+    private Integer accuracy;
 
 }

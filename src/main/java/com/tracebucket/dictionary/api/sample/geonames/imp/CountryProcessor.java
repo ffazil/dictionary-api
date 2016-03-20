@@ -1,14 +1,13 @@
 package com.tracebucket.dictionary.api.sample.geonames.imp;
 
-import com.tracebucket.dictionary.api.*;
-import com.tracebucket.dictionary.api.sample.geonames.CountryInfo;
+import com.tracebucket.dictionary.api.geo.*;
+import com.tracebucket.dictionary.api.sample.geonames.SampleData;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.batch.item.ItemProcessor;
 import org.springframework.stereotype.Component;
 
 import java.util.Currency;
 import java.util.Locale;
-import java.util.TimeZone;
 
 /**
  * @author ffazil

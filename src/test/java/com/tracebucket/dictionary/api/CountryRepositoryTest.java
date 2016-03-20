@@ -1,7 +1,6 @@
 package com.tracebucket.dictionary.api;
 
-import org.junit.Assert;
-import org.junit.Test;
+import com.tracebucket.dictionary.api.geo.CountryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 
 /**
